@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>旋转魔方</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			body {
+				background: url(img/bg.jpg) 0 0 no-repeat;
+				background-size: 100%;
+				-webkit-perspective: 1000;
+			}
+			
+			.Box {
+				width: 200px;
+				height: 200px;
+				position: relative;
+				margin: 200px auto;
+				/*运动关键帧  10s时间  线性过度  无限循环*/
+				-webkit-animation: move 10s linear infinite;
+				-webkit-transform-style: preserve-3d;
+			}
+			
+			.minBox {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				left: 50px;
+				top: 50px;
+				-webkit-transform-style: preserve-3d;
+			}
+			
+			.minBox li {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			.minBox li:nth-child(1) {
+				background: url(img/01.png) 0 0 no-repeat;
+				-webkit-transform: translateZ(50px);
+			}
+			
+			.minBox li:nth-child(2) {
+				background: url(img/02.png) 0 0 no-repeat;
+				-webkit-transform: translateZ(-50px);
+			}
+			
+			.minBox li:nth-child(3) {
+				background: url(img/03.png) 0 0 no-repeat;
+				-webkit-transform: rotateX(90deg) translateZ(50px);
+			}
+			
+			.minBox li:nth-child(4) {
+				background: url(img/04.png) 0 0 no-repeat;
+				-webkit-transform: rotateX(270deg) translateZ(50px);
+			}
+			
+			.minBox li:nth-child(5) {
+				background: red url(img/05.png) 0 0 no-repeat;
+				-webkit-transform: rotateY(90deg) translateZ(50px);
+			}
+			
+			.minBox li:nth-child(6) {
+				background: yellow url(img/06.png) 0 0 no-repeat;
+				-webkit-transform: rotateY(-90deg) translateZ(50px);
+			}
+			
+			@-webkit-keyframes move {
+				0% {
+					-webkit-transform: rotateX(13deg) rotateY(0deg)
+				}
+				100% {
+					-webkit-transform: rotateX(13deg) rotateY(360deg)
+				}
+			}
+			
+			.maxBox {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				-webkit-transform-style: preserve-3d;
+			}
+			
+			.maxBox li {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: #fff;
+				opacity: 0.2;
+				-webkit-transition: all 0.5s linear;
+			}
+			
+			.maxBox li:nth-child(1) {
+				-webkit-transform: translateZ(100px);
+			}
+			
+			.Box:hover ol li:nth-child(1) {
+				-webkit-transform: translateZ(300px);
+			}
+			
+			.maxBox li:nth-child(2) {
+				-webkit-transform: rotateX(90deg) translateZ(100px);
+			}
+			
+			.Box:hover ol li:nth-child(2) {
+				-webkit-transform: rotateX(90deg) translateZ(300px);
+			}
+			
+			.maxBox li:nth-child(3) {
+				-webkit-transform: rotateX(180deg) translateZ(100px);
+			}
+			
+			.Box:hover ol li:nth-child(3) {
+				-webkit-transform: rotateX(180deg) translateZ(300px);
+			}
+			
+			.maxBox li:nth-child(4) {
+				-webkit-transform: rotateX(270deg) translateZ(100px);
+			}
+			
+			.Box:hover ol li:nth-child(4) {
+				-webkit-transform: rotateX(270deg) translateZ(300px);
+			}
+			
+			.maxBox li:nth-child(5) {
+				-webkit-transform: rotateY(90deg) translateZ(100px);
+			}
+			
+			.Box:hover ol li:nth-child(5) {
+				-webkit-transform: rotateY(90deg) translateZ(300px);
+			}
+			
+			.maxBox li:nth-child(6) {
+				-webkit-transform: rotateY(-90deg) translateZ(100px);
+			}
+			
+			.Box:hover ol li:nth-child(6) {
+				-webkit-transform: rotateY(-90deg) translateZ(300px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="Box">
+			<ul class="minBox">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<ol class="maxBox">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+
+	</body>
+
+</html>
